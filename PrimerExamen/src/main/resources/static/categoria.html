@@ -1,0 +1,35 @@
+
+<html>
+    <head>
+        <title>TABLA CATEGORIAS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+    </head>
+    <body>
+     <table class="table">
+  <thead>
+    <tr> 
+        <th scope="col">Nombre</th>
+        <th scope="col">tipo</th>
+        <th scope="col">duracion</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Eliminar</th>
+    </tr>
+    
+  </thead>
+  <tbody>
+   <th:block th:each="user : ${categoria}">
+    <tr>
+        <td th:text="${user.getNombre}"></td>
+        <td th:text="${user.getTipo}"></td>
+        <td th:text="${user.getDuracion"></td>               
+        <td>
+            <a th:href="@{/editdatos/{id}(id=${user.getId})}">Edit</a>
+        </td>
+        <td>
+            <a th:href="@{/delete/{id}(id=${user.getId})}">Delete</a>
+        </td>
+                </tr>
+            </th:block>
+</html>
