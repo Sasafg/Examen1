@@ -62,9 +62,9 @@ public class controlador{
     //Cuando se le pasa el id se va a buscar para editarlo
     @GetMapping("/editdatos/{id}")
     //@PathVariable indica que ese parametro varia
-    public String editarPersona(@PathVariable("id") Long id, Model model){      
+    public String editardatos(@PathVariable("id") Long id, Model model){      
         categoria Cate= categoriaService.getcategoriaByID(id);
-        List<datos> listaPaises = datosService.Lista();
+        List<datos> lista = datosService.Lista();
         //Sustituye en el html 
         model.addAttribute("categoria", categoria);
         model.addAttribute("datos", dato);
@@ -73,8 +73,8 @@ public class controlador{
     }
     
     @GetMapping("/delete/{id}")
-    public String eliminarPersona(@PathVariable("id") Long idPersona){
-        personaService.delete(idPersona);
+    public String eliminardatos(@PathVariable("id") Long iddatos){
+        datosService.delete(iddatos);
         return "redirect:/persona";
     }
 }
